@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Driver Program - Treasure Valley French-Swahili Branch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+        
+        .image-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.2);
+            border: 3px dashed rgba(255,255,255,0.5);
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-section {
+            padding: 40px 30px;
+            text-align: center;
+            background: #f8f9fa;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .content {
+            padding: 50px 30px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .meeting-details {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin: 20px 0;
+        }
+        
+        .meeting-details p {
+            margin: 8px 0;
+            font-weight: 500;
+        }
+        
+        .process-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .process-list li {
+            counter-increment: step-counter;
+            margin: 20px 0;
+            padding-left: 60px;
+            position: relative;
+        }
+        
+        .process-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .stories-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            margin: 50px -30px 0;
+            padding: 50px 30px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stories-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .stories-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stories-section h3 {
+            color: #2d3436;
+            border-bottom-color: #2d3436;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .story-intro {
+            font-style: italic;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            border-left: 4px solid #2d3436;
+        }
+        
+        .jesus-stories {
+            margin: 30px 0;
+        }
+        
+        .jesus-stories ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .jesus-stories li {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 8px;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .jesus-stories li::before {
+            content: "✦";
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #2d3436;
+            font-size: 1.2em;
+        }
+        
+        .contact-info {
+            background: #e8f4fd;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #667eea;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .contact-info strong {
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer p {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .header h2 {
+                font-size: 1.1em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .stories-section {
+                margin: 30px -20px 0;
+                padding: 30px 20px;
+            }
+            
+            .process-list li {
+                padding-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Volunteer Driver Program</h1>
+                <h2>Treasure Valley French-Swahili Branch</h2>
+                <div class="image-placeholder">
+                    [Add your image here]
+                </div>
+                <p>Help bring our African friends and members to church every Sunday</p>
+            </div>
+        </header>
+        
+        <div class="cta-section">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ3xZLt2-TEZokeiOo0RfS4r2GOmJSpT9yKJZPGUe-1RwsCg/viewform?usp=header" class="cta-button" target="_blank">Sign Up to Volunteer</a>
+            <p style="margin-top: 15px; font-style: italic;">Join us in this joyful service opportunity</p>
+        </div>
+        
+        <main class="content">
+            <section class="section">
+                <h3>What is Needed</h3>
+                <p>Transportation is needed every Sunday to bring African friends and members of the church to and from Sunday meetings. Volunteer drivers are generally asked to provide rides for 1 or 2 households.</p>
+                
+                <div class="meeting-details">
+                    <p><strong>Meeting Start:</strong> 12:30 PM</p>
+                    <p><strong>Meeting End:</strong> 2:30 PM</p>
+                    <p><strong>Location:</strong> 3229 Bogus Basin Road, Boise, Idaho</p>
+                    <p><em>Note: A potluck dinner is held every Sunday right after church, so count on leaving 30 minutes or so after meetings end.</em></p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h3>How the Process Works</h3>
+                <ol class="process-list">
+                    <li>Assignments with instructions are made and communicated by text every Saturday evening. Driving needs are always in flux, so permanent assignments are generally not possible.</li>
+                    <li>Drivers are generally asked to make 1 or 2 stops. Standard protocols are observed in terms of male-female pairing and minors accompaniment.</li>
+                    <li>You can sign up to drive round-trip or just one-way. All volunteers are welcome, but round-trip availability is especially helpful.</li>
+                    <li>You'll receive an automated text message with a link to update your availability each Thursday evening at 7:00 PM.</li>
+                    <li>When updating your status, please ensure you're logged in under the Google account associated with your original sign-up email to avoid duplicate records.</li>
+                    <li>For communication with French or Swahili-speaking friends, Google Translate or AI assistants can be helpful, or reach out to the assigned missionaries for assistance.</li>
+                </ol>
+            </section>
+            
+            <div class="contact-info">
+                <p>Questions? Contact <strong>Brother Chuck VanDam</strong> at <strong>208-995-3720</strong></p>
+            </div>
+            
+            <div class="stories-section">
+                <div class="stories-content">
+                    <h3>Inconvenient Stories of Jesus<br><small>(We Love to Hear)</small></h3>
+                    
+                    <div class="story-intro">
+                        <p>Running late, I was just pulling off the Karcher Road Exit to Nampa on route to help bring a household of seven African immigrants to church when my phone rang...</p>
+                        <p><em>"Hi, this is Lou. You can turn around – they're not coming; it looks like the family is asleep."</em></p>
+                        <p>With some unanticipated quiet time bestowed upon me, I got to thinking about stories of inconvenience and frustration that were hallmarks of Jesus' earthly ministry...</p>
+                    </div>
+                    
+                    <div class="jesus-stories">
+                        <ul>
+                            <li>Jesus and his disciples travel out to Samaria to bring the good news, only to be turned away. There upon he has to pacify incensed disciples who are inclined to call down fire upon the town instead.</li>
+                            <li>Jesus and his disciples are surprised to find 5,000 hungry peasants waiting to be taught in some far-off place – way more than they were prepared for. So he tells his consternated disciples to solve the problem. Then, with a little coaching from The Master, they do!</li>
+                            <li>Jesus' disciples try to shoo away a bunch of children clambering for his attention (apparently they don't fit with the schedule) and need to be reminded that these kids make up the Kingdom of Heaven.</li>
+                            <li>Jesus has a pivotal appointment with destiny on the outskirts of town where three disciples are supposed to wait and watch for him. But in the midst of making the greatest sacrifice the world has ever known on their behalf, he finds them fast asleep.</li>
+                            <li>Jesus needs to get back to heaven to attend to other matters after a lengthy visit to a group of destitute refugees in America, but sensing they need a little more time, he delays his departure.</li>
+                        </ul>
+                    </div>
+                    
+                    <p style="text-align: center; font-size: 1.1em; margin-top: 30px; font-style: italic;">
+                        Called upon to serve voluntarily in Christ's Kingdom, we are all acquainted with inconvenient assignments, misunderstandings, offences, misdirection, redirection, delays, surprises and... <strong>JOY!</strong> Seeing all the messiness associated with serving each other as we all learn and grow, perhaps Jesus reminisces on his own time volunteering and just has to smile. 😊
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>Thank you for your interest in serving our Treasure Valley French-Swahili Branch community</p>
+            <p>Chuck VanDam, Rides Coordinator</p>
+        </footer>
+    </div>
+</body>
+</html>
